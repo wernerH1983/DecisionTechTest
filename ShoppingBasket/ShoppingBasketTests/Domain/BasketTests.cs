@@ -30,16 +30,27 @@ namespace ShoppingBasketTests.Domain
         public void WhenSameProductIsAddedMultipeTimes_BasketShouldCalculateCorrectPrice()
         {
             var sut = new Basket();
-            //Given the basket has 1 bread, 1 butter and 1 milk
+            //Given the basket has 1 bread, 1 butter,  1 milk and 1 milk
             sut.AddProduct(ProductRepositoryMock.Milk, 1);
             sut.AddProduct(ProductRepositoryMock.Milk, 1);
             sut.AddProduct(ProductRepositoryMock.Bread, 1);
             sut.AddProduct(ProductRepositoryMock.Butter, 1);
 
-            //The total should be 2.95
+            //The total should be 4.10
             Assert.Equal(4.10m, sut.Total);
         }
 
+        [Fact]
+        public void When2ButterAnd2BreadAreInTheBasket_BasketShouldReturnCorrectPrice()
+        {
+            var sut = new Basket();
+            //Given the basket has 2 butter and 2 bread 
+            sut.AddProduct(ProductRepositoryMock.Butter,2);
+            sut.AddProduct(ProductRepositoryMock.Bread,2);
+
+            //The total should be 3.10  
+            Assert.Equal(3.10m, sut.Total);
+        }
 
     }
 }
