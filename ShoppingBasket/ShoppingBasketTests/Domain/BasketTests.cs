@@ -63,5 +63,16 @@ namespace ShoppingBasketTests.Domain
             Assert.Equal(3.45m, sut.Total);
         }
 
+        [Fact]
+        public void WhenMultipelApply_BasketShouldApplyMultipleDiscounts()
+        {
+            var sut = new Basket(new List<Offer> { OfferRepositoryMock.ButterOffer, OfferRepositoryMock.MilkOffer });
+            //Given the basket has 2 butter, 1 bread and 8 milk
+            sut.AddProduct(ProductRepositoryMock.Butter,2);
+            sut.AddProduct(ProductRepositoryMock.Bread,1);
+            sut.AddProduct(ProductRepositoryMock.Milk,8);
+            //the total should be £9.00
+            Assert.Equal(9m, sut.Total);
+        }
     }
 }
