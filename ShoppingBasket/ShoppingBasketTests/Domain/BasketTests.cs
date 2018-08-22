@@ -53,5 +53,15 @@ namespace ShoppingBasketTests.Domain
             Assert.Equal(3.10m, sut.Total);
         }
 
+        [Fact]
+        public void When4MilkAreInTheBasket_BasketShouldApplyDiscountAndReturnCorrectPrice()
+        {
+            var sut = new Basket(new List<Offer>{OfferRepositoryMock.ButterOffer, OfferRepositoryMock.MilkOffer});
+            //Given the basket has 4 butter
+            sut.AddProduct(ProductRepositoryMock.Milk, 4);
+            //The total should be 3.45
+            Assert.Equal(3.45m, sut.Total);
+        }
+
     }
 }

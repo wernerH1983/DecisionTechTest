@@ -23,7 +23,7 @@ namespace ShoppingBasketTests.Helpers
             {
                 new OfferLine {Product = ProductRepositoryMock.Milk, Quantity = 4},                
             },
-            Discount = ProductRepositoryMock.Milk.Price * 0.5m
+            Discount = ProductRepositoryMock.Milk.Price 
         };
 
     }
