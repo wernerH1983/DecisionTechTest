@@ -80,5 +80,33 @@ namespace ShoppingBasketTests.Domain
 
             }));
         }
+
+        [Fact]
+        public void WhenMinimalPurchaseMetMultipeTimes_ShouldReturnMutlipeDiscount()
+        {
+            var sut = new Offer
+            {
+                MinimalPurchases = new List<OfferLine>
+                {
+                    new OfferLine {Product = ProductRepositoryMock.Butter, Quantity = 2},
+                    new OfferLine {Product = ProductRepositoryMock.Bread, Quantity = 1}
+                },
+                Discount = ProductRepositoryMock.Bread.Price * 0.5m
+            };
+
+            Assert.Equal(1m, sut.CalculateDiscount(new List<BasketLine>
+            {
+                new BasketLine
+                {
+                    Product = ProductRepositoryMock.Butter, Quantity = 4
+                },
+                new BasketLine
+                {
+                    Product = ProductRepositoryMock.Bread, Quantity =  2
+                }
+
+            }));
+        }
+
     }
 }
