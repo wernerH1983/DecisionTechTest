@@ -25,6 +25,5 @@ namespace ShoppingBasketTests.Helpers
             },
             Discount = ProductRepositoryMock.Milk.Price 
         };
-
     }
 }

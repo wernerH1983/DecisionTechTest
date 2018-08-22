@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ShoppingBasket.Domain
 {
@@ -29,7 +27,8 @@ namespace ShoppingBasket.Domain
         public decimal Total {
             get
             {
-                var combinedBasketLines = _basketLines.GroupBy(bl => bl.Product.Id).Select( g => new BasketLine{ Product = g.First().Product, Quantity = g.Sum( x=> x.Quantity  )});
+                var combinedBasketLines = _basketLines.GroupBy(bl => bl.Product.Id)
+                        .Select( g => new BasketLine{ Product = g.First().Product, Quantity = g.Sum( x=> x.Quantity  )});
                 return _basketLines.Sum(bl => bl.Quantity * bl.Product.Price) - _offers.Sum(
                     o => o.CalculateDiscount(combinedBasketLines));
             }

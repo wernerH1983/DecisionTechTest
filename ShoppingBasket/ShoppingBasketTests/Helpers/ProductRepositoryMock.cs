@@ -7,7 +7,6 @@ namespace ShoppingBasketTests.Helpers
 {
     public static class ProductRepositoryMock
     {
-
         public static Product Milk => new Product
             {
                 Id = 1,
@@ -29,7 +28,6 @@ namespace ShoppingBasketTests.Helpers
                 Id = 3,
                 Name = "Bread",
                 Price = 1.00m
-            };
-        
+            };        
     }
 }

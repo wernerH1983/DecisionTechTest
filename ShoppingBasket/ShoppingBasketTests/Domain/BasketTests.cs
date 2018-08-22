@@ -86,6 +86,6 @@ namespace ShoppingBasketTests.Domain
             sut.AddProduct(ProductRepositoryMock.Milk, 1);
             //The total should be 3.45
             Assert.Equal(3.45m, sut.Total);
-        }
+        }        
     }
 }
