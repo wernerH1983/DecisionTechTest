@@ -16,7 +16,6 @@ namespace ShoppingBasket.Domain
                 (products.SingleOrDefault(p => p.Product.Id == mp.Product.Id)?.Quantity ?? 0) / mp.Quantity).Min();
 
             return minimalPurchaseMet * Discount;
-
         }
     }
 }

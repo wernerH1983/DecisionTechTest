@@ -26,8 +26,6 @@ namespace ShoppingBasket.Domain
         }
 
         public decimal Total => _basketLines.Sum(bl => bl.Quantity * bl.Product.Price) - _offers.Sum(o => o.CalculateDiscount(_basketLines));
-
-
-
+   
     }
 }

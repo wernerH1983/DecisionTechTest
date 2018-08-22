@@ -104,9 +104,7 @@ namespace ShoppingBasketTests.Domain
                 {
                     Product = ProductRepositoryMock.Bread, Quantity =  2
                 }
-
             }));
         }
-
     }
 }
