@@ -1,0 +1,21 @@
+﻿@using System.Xml.Schema
+@model Order
+@{
+    ViewData["Title"] = "ShoppingBasket";    
+}
+<div>
+    <form action="@Url.Action("Calculate")" method="post">
+        <table>
+            <tr><td>Butter</td><td>£0.80 </td><td>@Html.TextBoxFor(i => i.Butter, new { @type = "number", min="0"}) </td></tr>
+            <tr><td>Milk</td><td>£1.15 </td><td>@Html.TextBoxFor(i => i.Milk, new { @type = "number", min = "0" }) </td></tr>
+            <tr><td>Bread</td><td>£1.00 </td><td>@Html.TextBoxFor(i => i.Bread, new { @type = "number", min = "0" }) </td></tr>
+        </table>
+        <input type="submit" />
+    </form>
+
+    @if (Model.Total.HasValue)
+    {
+        <div> Total is @Model.Total</div>
+    }
+    
+</div>
