@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ShoppingBasket.Domain;
 using ShoppingBasketTests.Helpers;
 using Xunit;
@@ -43,7 +44,7 @@ namespace ShoppingBasketTests.Domain
         [Fact]
         public void When2ButterAnd2BreadAreInTheBasket_BasketShouldReturnCorrectPrice()
         {
-            var sut = new Basket();
+            var sut = new Basket(new List<Offer>{OfferRepositoryMock.ButterOffer});
             //Given the basket has 2 butter and 2 bread 
             sut.AddProduct(ProductRepositoryMock.Butter,2);
             sut.AddProduct(ProductRepositoryMock.Bread,2);
