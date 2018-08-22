@@ -6,6 +6,12 @@ namespace ShoppingBasket.Domain
 {
     public class Basket
     {
+
+        public void AddProduct(Product product, int Quantity)
+        {
+            
+        }
+
         public decimal Total
         {
             get { return 0m; }
